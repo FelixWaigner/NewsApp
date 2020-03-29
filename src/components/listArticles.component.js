@@ -18,6 +18,7 @@ export default class ListaArticles  extends React.Component {
         axios
             .get(apiLink)
             .then(res => {
+                console.log(res);
                 const allArticles = res.data.articles;
                 //this.setState({ titles: title });
                 console.log(allArticles);
@@ -34,14 +35,16 @@ export default class ListaArticles  extends React.Component {
             <div>
                 {this.state.articles.map(article => (
                     <React.Fragment key={article.title}>
-                        <div className="articleCard">
-                            <div className="articleImg">
-                                <img className="articleImg" src={article.urlToImage} alt=""/>
-                            </div>
-                            <ul className="article">
-                                <li className="articleTitle"> {article.title} </li>
-                            </ul>
+                        <a href={article.url} target="#">
+                            <div className="articleCard" >
+                                <div className="articleImg">
+                                    <img className="articleImg" src={article.urlToImage} alt=""/>
+                                </div>
+                                <ul className="article">
+                                    <li className="articleTitle"> {article.title} </li>
+                                </ul>
                          </div>
+                         </a>
                     </React.Fragment>
                 ))}
             </div>
@@ -49,6 +52,9 @@ export default class ListaArticles  extends React.Component {
     }
 
 }
+
+//Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com</a>
+
 /* 
     <div>
                 <ul className="titleList">
